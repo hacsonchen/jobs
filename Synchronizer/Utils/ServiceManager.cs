@@ -135,7 +135,7 @@ namespace Synchronizer.Utils
 			});
 
 			ti.Context = new InstallContext();
-			ti.Context.Parameters["assemblypath"] = "\"" + Assembly.GetEntryAssembly().Location + "\" /service";
+			ti.Context.Parameters["assemblypath"] = "\"" + Assembly.GetEntryAssembly().Location + "\" /entry ";
 
 			ti.Uninstall(null);
 		}

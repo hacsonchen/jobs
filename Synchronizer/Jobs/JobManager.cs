@@ -1,6 +1,7 @@
 ﻿using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Triggers;
+using Synchronizer.Configuration;
 using Synchronizer.Core;
 using System;
 using System.Collections.Generic;

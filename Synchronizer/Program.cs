@@ -121,6 +121,10 @@ namespace Synchronizer
 		static int Main(string[] args)
 		{
 
+#if DEBUG
+			SyncApp.Start();
+			return 1;
+#else
 			return CommandLine.Parser.Default.ParseArguments<StartOptions, StopOptions, InstallOptions,UnInstallOptions,DebugOptions,EntryOptions>(args)
 			  .MapResult(
 				(StartOptions opts) => RunStart(opts),
@@ -130,6 +134,8 @@ namespace Synchronizer
 				(DebugOptions opts) => RunDebug(opts),
 				(EntryOptions opts) => RunEntry(opts),
 				errs => 1);
+#endif
+
 
 		}
 

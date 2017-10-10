@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Synchronizer.Configuration
 {
-	[ConfigurationCollection(typeof(RequestElement))]
+	[ConfigurationCollection(typeof(RequestElement),AddItemName = "request")]
 	public class RequestElementCollection : DeserializableConfigurationElementCollection<RequestElement>
 	{
 		protected override ConfigurationElement CreateNewElement()

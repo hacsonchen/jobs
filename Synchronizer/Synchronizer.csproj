@@ -124,9 +124,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgsOption.cs" />
+    <Compile Include="Configuration\AppJobsConfigurationSection.cs" />
     <Compile Include="Configuration\Helper\DeserializableConfigurationElement.cs" />
+    <Compile Include="Configuration\Helper\DeserializableConfigurationElementCollection.cs" />
     <Compile Include="Configuration\Helper\DeserializableConfigurationElementCollectionBase.cs" />
     <Compile Include="Configuration\Helper\XmlWriterExtensions.cs" />
+    <Compile Include="Configuration\RequestElement.cs" />
+    <Compile Include="Configuration\RequestElementCollection.cs" />
     <Compile Include="Core\Configuration.cs" />
     <Compile Include="Core\IConfigManager.cs" />
     <Compile Include="Core\RequestConfigManager.cs" />

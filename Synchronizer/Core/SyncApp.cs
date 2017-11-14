@@ -39,11 +39,10 @@ namespace Synchronizer.Core
 
             try
             {
-                var test = (AppJobsConfigurationSection)ConfigurationManager.GetSection("app-jobs");
+                var test = (AppJobsConfigurationSection)ConfigurationManager.GetSection("steve");
 
-                var jobs = AppConfigurationManager.GetRequestJobs();
-                var requestJobs = AppConfigurationManager.Jobs.RequestJobs;
-                scheduler.AddJob(requestJobs);
+                var AppJobs = AppConfigurationManager.GetJobs();
+                scheduler.AddJob(AppJobs);
 
                 Logger.For("Console").Info(" Starting scheduler...");
 

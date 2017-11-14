@@ -10,12 +10,12 @@ namespace Synchronizer.Core
 {
 	public class AppConfigurationManager
 	{
-		public static AppJobsConfigurationSection Jobs = (AppJobsConfigurationSection)ConfigurationManager.GetSection("app-jobs");
+		public static AppJobsConfigurationSection AppJobs = (AppJobsConfigurationSection)ConfigurationManager.GetSection("steve");
 
-        public static RequestElementCollection GetRequestJobs()
+        public static JobElementCollection GetJobs()
         {
-            Jobs.Configure();
-            return AppJobsConfigurationSection.Current.RequestJobs;
+            AppJobs.Configure();
+            return AppJobsConfigurationSection.Current.Jobs;
         }
 
 	}

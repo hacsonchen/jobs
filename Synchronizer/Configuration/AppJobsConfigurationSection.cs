@@ -10,9 +10,9 @@ namespace Synchronizer.Configuration
 	public class AppJobsConfigurationSection : ConfigurationSection
 	{
 
-		private const string AppJobsPropertyName = "app-jobs";
+		private const string AppJobsPropertyName = "steve";
 
-		private const string RequestJobsPropertyName = "request-jobs";
+		private const string JobsPropertyName = "jobs";
 
         [ThreadStatic]
         private static AppJobsConfigurationSection current;
@@ -27,16 +27,12 @@ namespace Synchronizer.Configuration
         }
 
 
-        [ConfigurationProperty(RequestJobsPropertyName, IsDefaultCollection = true)]
-		public RequestElementCollection RequestJobs
+        [ConfigurationProperty(JobsPropertyName, IsDefaultCollection = true)]
+		public JobElementCollection Jobs
 		{
 			get 
 			{ 
-				var requestJobs = (RequestElementCollection)base[RequestJobsPropertyName];
-
-				//requestJobs
-
-				return requestJobs;
+				return (JobElementCollection)base[JobsPropertyName];
 			}
 		}
 
@@ -44,5 +40,7 @@ namespace Synchronizer.Configuration
         {
             current = this;
         }
+
+
 	}
 }

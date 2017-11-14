@@ -10,12 +10,6 @@ namespace Synchronizer.Configuration
 {
 	public class RequestElement : DeserializableConfigurationElement
 	{
-		[ConfigurationProperty("jobname", IsKey = true, IsRequired = true)]
-		public string Name
-		{
-			get { return (string)this["jobname"]; }
-			set { }
-		}
 
 		[ConfigurationProperty("url", IsRequired = true, DefaultValue = "http://localhost")]
 		[RegexStringValidator(@"http?\://\S+")]
@@ -46,11 +40,6 @@ namespace Synchronizer.Configuration
 			set { }
 		}
 
-		[ConfigurationProperty("expression", IsRequired = false, DefaultValue = "")]
-		public string Expression
-		{
-			get { return (string)this["expression"]; }
-			set { }
-		}
+
 	}
 }

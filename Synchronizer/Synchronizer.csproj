@@ -124,13 +124,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgsOption.cs" />
+    <Compile Include="Configuration\ExecuteElement.cs" />
+    <Compile Include="Configuration\ExecuteElementCollection.cs" />
     <Compile Include="Configuration\Helper\DeserializableConfigurationElement.cs" />
     <Compile Include="Configuration\Helper\DeserializableConfigurationElementCollectionBase.cs" />
     <Compile Include="Configuration\Helper\XmlWriterExtensions.cs" />
+    <Compile Include="Configuration\RequestElement.cs" />
+    <Compile Include="Configuration\RequestElementCollection.cs" />
     <Compile Include="Core\Configuration.cs" />
+    <Compile Include="Core\ExecuteConfigManager.cs" />
     <Compile Include="Core\IConfigManager.cs" />
     <Compile Include="Core\RequestConfigManager.cs" />
     <Compile Include="Core\SyncApp.cs" />
+    <Compile Include="Jobs\ExecuteJob.cs" />
     <Compile Include="Jobs\RequestJob.cs" />
     <Compile Include="Jobs\JobManager.cs" />
     <Compile Include="Program.cs" />
@@ -138,6 +144,8 @@
     <Compile Include="Utils\ConsoleManager.cs" />
     <Compile Include="Utils\HttpRequest.cs" />
     <Compile Include="Utils\Logger.cs" />
+    <Compile Include="Utils\PluginsExtension.cs" />
+    <Compile Include="Utils\PluginsLoader.cs" />
     <Compile Include="Utils\QuartzExtensions.cs" />
     <Compile Include="Utils\ServiceManager.cs" />
     <Compile Include="WindwosService.cs">
@@ -148,8 +156,12 @@
     <None Include="App.config" />
     <None Include="config\app-jobs.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="config\log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="install.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="job_scheduling_data_2_0.xsd">
@@ -167,6 +179,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Synchronizer_TemporaryKey.pfx" />
+    <None Include="uninstall.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -191,6 +206,12 @@
   <ItemGroup>
     <Content Include="cmd.ico" />
     <Content Include="command.ico" />
+    <Content Include="plugins\GZMetroReaper.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

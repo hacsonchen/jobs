@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Synchronizer.Jobs;
+using Synchronizer.Configuration;
 
 namespace Synchronizer.Core
 {
@@ -16,6 +17,8 @@ namespace Synchronizer.Core
 		private static UnityContainer container;
 
 		public static DateTime? start_time;
+
+		public static readonly PluginsLoader plugins = new PluginsLoader();
 
 		public static string SERVICE_NAME = "ShuJuPingTai-GCI";
 
@@ -38,7 +41,14 @@ namespace Synchronizer.Core
 			try
 			{
 				var requestJobs = AppConfigurationManager.Jobs.RequestJobs;
+				var executeJobs = AppConfigurationManager.Jobs.ExecuteJobs;
+
 				scheduler.AddJob(requestJobs);
+
+				//加载DLL
+				LoadDLL(executeJobs);
+
+				scheduler.AddJob(executeJobs);
 
 				Logger.For("Console").Info(" Starting scheduler...");
 
@@ -50,6 +60,14 @@ namespace Synchronizer.Core
 			}
 		}
 
+		private static void LoadDLL(ExecuteElementCollection jobs)
+		{
+			foreach (ExecuteElement job in jobs)
+			{
+				plugins.Load(job.Type);
+			}
+		}
+
 		public static string[] Jobs()
 		{
 			var scheduler = container.Resolve<IScheduler>();
@@ -58,7 +76,7 @@ namespace Synchronizer.Core
 
 			foreach (string groupName in groupNames)
 			{
-				
+
 			}
 
 

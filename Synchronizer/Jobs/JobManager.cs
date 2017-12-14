@@ -1,6 +1,7 @@
 ﻿using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Triggers;
+using Synchronizer.Configuration;
 using Synchronizer.Core;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,19 @@ namespace Synchronizer.Jobs
 
 				scheduler.ScheduleJob(
 				JobBuilder.Create<RequestJob>().WithIdentity(element.Name).SetJobData(map).Build(),
+				TriggerBuilder.Create().StartNow().WithCronSchedule(element.Expression).Build());
+			}
+		}
+
+		public static void AddJob(this IScheduler scheduler, ExecuteElementCollection collection)
+		{
+			foreach (ExecuteElement element in collection)
+			{
+				ExecuteConfigManager config = new ExecuteConfigManager(element);
+				JobDataMap map = new JobDataMap(config.ToMap());
+
+				scheduler.ScheduleJob(
+				JobBuilder.Create<ExecuteJob>().WithIdentity(element.Name).SetJobData(map).Build(),
 				TriggerBuilder.Create().StartNow().WithCronSchedule(element.Expression).Build());
 			}
 		}

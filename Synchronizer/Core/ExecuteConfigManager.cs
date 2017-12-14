@@ -7,27 +7,26 @@ using System.Threading.Tasks;
 
 namespace Synchronizer.Core
 {
-	public class RequestConfigManager : IConfigManager
+	public class ExecuteConfigManager : IConfigManager
 	{
-		private readonly IDictionary<string, object> Values = new Dictionary<string,object>
-        {
-        };
-
-		public RequestConfigManager(RequestElement config)
+		private readonly IDictionary<string, object> Values = new Dictionary<string, object>
 		{
-			Values.Add("JobName",config.Name);
-			Values.Add("Url", config.Url);
+		};
+
+		public ExecuteConfigManager(ExecuteElement config)
+		{
+			Values.Add("JobName", config.Name);
 			Values.Add("Type", config.Type);
-			Values.Add("DataType", config.DataType);
+			Values.Add("Method", config.Method);
+			Values.Add("Args", config.Args);
 			Values.Add("Expression", config.Expression);
-			Values.Add("Data", config.Data);
 		}
 
 		public IDictionary<string, object> ToMap()
 		{
 			return Values;
 		}
-		
+
 
 		public string GetValue(string key)
 		{

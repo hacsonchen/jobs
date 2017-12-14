@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synchronizer", "Synchronizer\Synchronizer.csproj", "{F1306B6B-6226-4C02-99A4-FF42A071DCA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{5CACF41A-D34A-4418-BE5F-1A9742020203}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GZMetroReaper", "GZMetroReaper\GZMetroReaper.csproj", "{324A17EB-A2C9-4D12-A300-E660FEC5E79B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,15 @@ Global
 		{F1306B6B-6226-4C02-99A4-FF42A071DCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1306B6B-6226-4C02-99A4-FF42A071DCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1306B6B-6226-4C02-99A4-FF42A071DCA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324A17EB-A2C9-4D12-A300-E660FEC5E79B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324A17EB-A2C9-4D12-A300-E660FEC5E79B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324A17EB-A2C9-4D12-A300-E660FEC5E79B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324A17EB-A2C9-4D12-A300-E660FEC5E79B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{324A17EB-A2C9-4D12-A300-E660FEC5E79B} = {5CACF41A-D34A-4418-BE5F-1A9742020203}
 	EndGlobalSection
 EndGlobal
